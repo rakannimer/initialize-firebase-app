@@ -1,0 +1,30 @@
+{
+  "name": "initialize-firebase-app",
+  "version": "0.1.0",
+  "description": "Initialize a firebase app (web or admin) with duplicate app error ignore",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "js:next": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/rakannimer/mobx-fire",
+  "author": "rakannimer",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "rollup -c",
+    "start": "npm run build && node dist/index.cjs.js",
+    "prepublish": "npm run build"
+  },
+  "files": [
+    "dist/"
+  ],
+  "devDependencies": {
+    "prettier": "^1.14.3",
+    "rollup": "^0.66.4",
+    "rollup-plugin-typescript2": "^0.17.1",
+    "typescript": "^3.1.1"
+  },
+  "jest": {
+    "preset": "ts-jest"
+  }
+}
