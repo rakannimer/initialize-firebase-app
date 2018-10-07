@@ -1,4 +1,16 @@
-# Initialize a firebase app (web or admin)
+# initialize-firebase-app
+
+[![CircleCI][circleci-badge]][circleci-href]
+[![NPM][npm-version-badge]][npm-href]
+[![BundlePhobia][bundlephobia-badge]][bundlephobia-href]
+
+Initialize firebase module (web, react-native or admin) using the appropriate credentials.
+
+## Installation
+
+```sh
+yarn add initialize-firebase-app
+```
 
 ## Usage
 
@@ -47,3 +59,11 @@ initializeFirebaseApp(config);
 ```
 
 [Server config docs.](https://github.com/rakannimer/firebase-admin-get-children-ids)
+
+[circleci-href]: https://circleci.com/gh/rakannimer/initialize-firebase-app
+[circleci-badge]: https://img.shields.io/circleci/project/github/rakannimer/initialize-firebase-app.svg
+[npm-href]: https://www.npmjs.com/package/initialize-firebase-app
+[npm-version-badge]: https://img.shields.io/npm/v/initialize-firebase-app.svg
+[npm-license-badge]: https://img.shields.io/github/license/rakannimer/initialize-firebase-app.svg
+[bundlephobia-badge]: https://img.shields.io/bundlephobia/minzip/initialize-firebase-app.svg
+[bundlephobia-href]: https://bundlephobia.com/result?p=initialize-firebase-app
