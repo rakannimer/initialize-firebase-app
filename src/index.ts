@@ -20,6 +20,7 @@ export type FirebaseCredential = {
   auth_provider_x509_cert_url: string;
   clienMimeType_x509_cert_url: string;
 };
+
 export interface InitializeAppArgsServer {
   firebase: any;
   databaseURL: string;
@@ -70,13 +71,17 @@ export const initializeFirebaseAppAdmin = (config: InitializeAppArgsServer) => {
     }
   }
 };
+
 export const initializeFirebaseApp = (
-  config: InitializeAppArgsClient | InitializeAppArgsServer
+  config: InitializeAppArgsClient | InitializeAppArgsServer = {}
 ) => {
   const shouldUseAdmin = "credential" in config;
+  const shouldUseWeb = "apiKey" in config;
   if (shouldUseAdmin) {
     initializeFirebaseAppAdmin(config as InitializeAppArgsServer);
-  } else {
+  } else if (shouldUseWeb) {
     initializeFirebaseAppClient(config as InitializeAppArgsClient);
   }
 };
+
+export default initializeFirebaseApp;
