@@ -1,6 +1,6 @@
 {
   "name": "initialize-firebase-app",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "description": "Initialize a firebase app (web or admin) with duplicate app error ignore",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
