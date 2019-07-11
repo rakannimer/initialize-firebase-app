@@ -18,7 +18,6 @@ export type FirebaseCredential = {
   auth_uri: string;
   token_uri: string;
   auth_provider_x509_cert_url: string;
-  clienMimeType_x509_cert_url: string;
 };
 
 export interface InitializeAppArgsServer {
@@ -71,16 +70,26 @@ export const initializeFirebaseAppAdmin = (config: InitializeAppArgsServer) => {
     }
   }
 };
-
+function isServerConfig(
+  config: InitializeAppArgsClient | InitializeAppArgsServer
+): config is InitializeAppArgsServer {
+  return "credential" in config;
+}
+function isWebConfig(
+  config: InitializeAppArgsClient | InitializeAppArgsServer
+): config is InitializeAppArgsClient {
+  return "apiKey" in config;
+}
 export const initializeFirebaseApp = (
-  config: InitializeAppArgsClient | InitializeAppArgsServer = {}
+  config: InitializeAppArgsClient | InitializeAppArgsServer | null = null
 ) => {
-  const shouldUseAdmin = "credential" in config;
-  const shouldUseWeb = "apiKey" in config;
-  if (shouldUseAdmin) {
-    initializeFirebaseAppAdmin(config as InitializeAppArgsServer);
-  } else if (shouldUseWeb) {
-    initializeFirebaseAppClient(config as InitializeAppArgsClient);
+  if (config === null) return;
+  if (isWebConfig(config)) {
+    initializeFirebaseAppClient(config);
+  } else if (isServerConfig(config)) {
+    initializeFirebaseAppAdmin(config);
+  } else {
+    // Do nothing in react-native
   }
 };
 
